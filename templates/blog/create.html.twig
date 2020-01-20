@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    {% if editMode %}
+        <h1>Modifier l'article</h1>
+    {% else %}     
+        <h1>Ajouter un article</h1>   
+    {% endif %}  
+
+    {{ form_start(formArticle) }}
+
+    {{ form_row(formArticle.title, { 'attr': { 'placeholder': "Titre de l'article" }, 'label': "Titre" }) }}
+
+    {{ form_row(formArticle.category, { 'label': "Catégorie" }) }}
+
+    {{ form_row(formArticle.content, { 'attr': { 'placeholder': "Contenu de l'article" }, 'label': "Contenu" }) }}
+
+    {{ form_row(formArticle.image, { 'attr': { 'placeholder': "Image de l'article" }, 'label': "Image" }) }}
+    
+    {% if editMode %}
+        <button type="submit" class="btn btn-warning">Modifier l'article</button>
+    {% else %}        
+        <button type="submit" class="btn btn-success">Ajouter l'article</button>
+    {% endif %} 
+
+    {{ form_end(formArticle) }}
+
+{% endblock %}
+
+
+
+
