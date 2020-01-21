@@ -20,7 +20,16 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('blog_create') }}">Créer un article</a>
-                    </li>                   
+                    </li>       
+                    {% if not app.user %}
+                        <li class="nav-item">
+                            <a href="{{ path('security_login') }}" class="nav-link">Se Connecter</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{{ path('security_logout') }}" class="nav-link">Se Déconnecter</a>
+                        </li>
+                    {% endif %}                      
                 </ul>               
             </div>    
         </nav>    
